@@ -3,9 +3,11 @@ import SwiftUI
 
 // NB: Deprecated after 0.13.0:
 
+@available(iOS 13.0, *)
 @available(*, deprecated, renamed: "BindingAction")
 public typealias FormAction = BindingAction
 
+@available(iOS 13.0, *)
 extension Reducer {
   @available(*, deprecated, renamed: "binding")
   public func form(action toFormAction: CasePath<Action, BindingAction<State>>) -> Self {
@@ -36,6 +38,7 @@ extension ActionSheetState {
   }
 }
 
+@available(iOS 13.0, *)
 extension AlertState {
   @available(*, deprecated, message: "'title' and 'message' should be 'TextState'")
   @_disfavoredOverload
@@ -68,6 +71,7 @@ extension AlertState {
   }
 }
 
+@available(iOS 13.0, *)
 extension AlertState.Button {
   @available(*, deprecated, message: "'label' should be 'TextState'")
   @_disfavoredOverload
@@ -99,6 +103,7 @@ extension AlertState.Button {
 
 // NB: Deprecated after 0.9.0:
 
+@available(iOS 13.0, *)
 extension Store {
   @available(*, deprecated, renamed: "publisherScope(state:)")
   public func scope<P: Publisher, LocalState>(
@@ -120,6 +125,7 @@ extension Store {
 
 // NB: Deprecated after 0.6.0:
 
+@available(iOS 13.0, *)
 extension Reducer {
   @available(*, deprecated, renamed: "optional()")
   public var optional: Reducer<State?, Action, Environment> {
@@ -129,6 +135,7 @@ extension Reducer {
 
 // NB: Deprecated after 0.1.4:
 
+@available(iOS 13.0, *)
 extension Reducer {
   @available(*, unavailable, renamed: "debug(_:environment:)")
   public func debug(
@@ -163,6 +170,7 @@ extension Reducer {
   }
 }
 
+@available(iOS 13.0, *)
 extension WithViewStore {
   @available(*, unavailable, renamed: "debug(_:)")
   public func debug(prefix: String) -> Self {
@@ -172,6 +180,7 @@ extension WithViewStore {
 
 // NB: Deprecated after 0.1.3:
 
+@available(iOS 13.0, *)
 extension Effect {
   @available(*, unavailable, renamed: "run")
   public static func async(
@@ -181,6 +190,7 @@ extension Effect {
   }
 }
 
+@available(iOS 13.0, *)
 extension Effect where Failure == Swift.Error {
   @available(*, unavailable, renamed: "catching")
   public static func sync(_ work: @escaping () throws -> Output) -> Self {

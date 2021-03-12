@@ -17,6 +17,7 @@ import SwiftUI
 ///     inside a `WithViewStore` it will behave erratically. To work around you should use the
 ///     initializer that takes a binding (see
 ///     [here](https://gist.github.com/mbrandonw/dee2ceac2c316a1619cfdf1dc7945f66)).
+@available(iOS 13.0, *)
 public struct WithViewStore<State, Action, Content> {
   private let content: (ViewStore<State, Action>) -> Content
   private var prefix: String?
@@ -33,6 +34,7 @@ public struct WithViewStore<State, Action, Content> {
   }
 }
 
+@available(iOS 13.0, *)
 extension WithViewStore: View where Content: View {
   /// Initializes a structure that transforms a store into an observable view store in order to
   /// compute views from store state.
@@ -66,6 +68,7 @@ extension WithViewStore: View where Content: View {
   }
 }
 
+@available(iOS 13.0, *)
 extension WithViewStore where Content: View, State: Equatable {
   /// Initializes a structure that transforms a store into an observable view store in order to
   /// compute views from equatable store state.
@@ -81,6 +84,7 @@ extension WithViewStore where Content: View, State: Equatable {
   }
 }
 
+@available(iOS 13.0, *)
 extension WithViewStore where Content: View, State == Void {
   /// Initializes a structure that transforms a store into an observable view store in order to
   /// compute views from equatable store state.
@@ -96,6 +100,7 @@ extension WithViewStore where Content: View, State == Void {
   }
 }
 
+@available(iOS 13.0, *)
 extension WithViewStore: DynamicViewContent where State: Collection, Content: DynamicViewContent {
   public typealias Data = State
 

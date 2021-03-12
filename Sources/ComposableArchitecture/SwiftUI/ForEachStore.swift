@@ -56,6 +56,7 @@ import SwiftUI
 ///     ) { todoStore in
 ///       TodoView(store: todoStore)
 ///     }
+@available(iOS 13.0, *)
 public struct ForEachStore<EachState, EachAction, Data, ID, Content>: DynamicViewContent
 where Data: Collection, ID: Hashable, Content: View {
   public let data: Data

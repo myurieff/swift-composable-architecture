@@ -161,6 +161,7 @@
   /// wait longer than the 0.5 seconds, because if it wasn't and it delivered an action when we did
   /// not expect it would cause a test failure.
   ///
+@available(iOS 13.0, *)
   public final class TestStore<State, LocalState, Action: Equatable, LocalAction, Environment> {
     private var environment: Environment
     private let fromLocalAction: (LocalAction) -> Action
@@ -183,6 +184,7 @@
     }
   }
 
+@available(iOS 13.0, *)
   extension TestStore where State == LocalState, Action == LocalAction {
     /// Initializes a test store from an initial state, a reducer, and an initial environment.
     ///
@@ -205,6 +207,7 @@
     }
   }
 
+@available(iOS 13.0, *)
   extension TestStore where LocalState: Equatable {
     /// Asserts against a script of actions.
     public func assert(
@@ -445,6 +448,7 @@
     }
   }
 
+@available(iOS 13.0, *)
   extension TestStore {
     /// Scopes a store to assert against more local state and actions.
     ///

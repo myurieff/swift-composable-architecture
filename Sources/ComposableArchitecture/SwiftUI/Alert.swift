@@ -90,6 +90,7 @@ import SwiftUI
 ///       }
 ///     )
 ///
+@available(iOS 13.0, *)
 public struct AlertState<Action> {
   public let id = UUID()
   public var message: TextState?
@@ -158,6 +159,7 @@ public struct AlertState<Action> {
   }
 }
 
+@available(iOS 13.0, *)
 extension View {
   /// Displays an alert when then store's state becomes non-`nil`, and dismisses it when it becomes
   /// `nil`.
@@ -180,6 +182,7 @@ extension View {
   }
 }
 
+@available(iOS 13.0, *)
 extension AlertState: CustomDebugOutputConvertible {
   public var debugOutput: String {
     let fields = (
@@ -192,6 +195,7 @@ extension AlertState: CustomDebugOutputConvertible {
   }
 }
 
+@available(iOS 13.0, *)
 extension AlertState: Equatable where Action: Equatable {
   public static func == (lhs: Self, rhs: Self) -> Bool {
     lhs.title == rhs.title
@@ -200,6 +204,8 @@ extension AlertState: Equatable where Action: Equatable {
       && lhs.secondaryButton == rhs.secondaryButton
   }
 }
+
+@available(iOS 13.0, *)
 extension AlertState: Hashable where Action: Hashable {
   public func hash(into hasher: inout Hasher) {
     hasher.combine(self.title)
@@ -208,14 +214,19 @@ extension AlertState: Hashable where Action: Hashable {
     hasher.combine(self.secondaryButton)
   }
 }
+
+@available(iOS 13.0, *)
 extension AlertState: Identifiable {}
-
+@available(iOS 13.0, *)
 extension AlertState.Button.`Type`: Equatable {}
+@available(iOS 13.0, *)
 extension AlertState.Button: Equatable where Action: Equatable {}
-
+@available(iOS 13.0, *)
 extension AlertState.Button.`Type`: Hashable {}
+@available(iOS 13.0, *)
 extension AlertState.Button: Hashable where Action: Hashable {}
 
+@available(iOS 13.0, *)
 extension AlertState.Button {
   func toSwiftUI(send: @escaping (Action) -> Void) -> SwiftUI.Alert.Button {
     let action = { if let action = self.action { send(action) } }
@@ -232,6 +243,7 @@ extension AlertState.Button {
   }
 }
 
+@available(iOS 13.0, *)
 extension AlertState {
   fileprivate func toSwiftUI(send: @escaping (Action) -> Void) -> SwiftUI.Alert {
     if let primaryButton = self.primaryButton, let secondaryButton = self.secondaryButton {

@@ -123,6 +123,7 @@ import SwiftUI
 ///       )
 ///     )
 ///
+@available(iOS 13.0, *)
 public struct BindingAction<Root>: Equatable {
   public let keyPath: PartialKeyPath<Root>
 
@@ -178,6 +179,7 @@ public struct BindingAction<Root>: Equatable {
   }
 }
 
+@available(iOS 13.0, *)
 extension Reducer {
   /// Returns a reducer that applies `BindingAction` mutations to `State` before running this
   /// reducer's logic.
@@ -211,6 +213,7 @@ extension Reducer {
   }
 }
 
+@available(iOS 13.0, *)
 extension ViewStore {
   /// Derives a binding from the store that mutates state at the given writable key path by wrapping
   /// a `BindingAction` with the store's action type.

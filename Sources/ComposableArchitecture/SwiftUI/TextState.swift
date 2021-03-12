@@ -44,6 +44,7 @@ import SwiftUI
 /// - Note: `TextState` does not support _all_ `LocalizedStringKey` permutations at this time, in
 ///   particular, for example interpolated `SwiftUI.Image`s. `TextState` also uses reflection to
 ///   determine `LocalizedStringKey` equatability, so look out for edge cases.
+@available(iOS 13.0, *)
 public struct TextState: Equatable, Hashable {
   fileprivate var modifiers: [Modifier] = []
   fileprivate let storage: Storage
@@ -113,6 +114,7 @@ public struct TextState: Equatable, Hashable {
   }
 }
 
+@available(iOS 13.0, *)
 extension TextState {
   public init(verbatim content: String) {
     self.storage = .verbatim(content)
@@ -197,6 +199,7 @@ extension TextState {
   }
 }
 
+@available(iOS 13.0, *)
 extension Text {
   public init(_ state: TextState) {
     let text: Text
@@ -235,12 +238,14 @@ extension Text {
   }
 }
 
+@available(iOS 13.0, *)
 extension TextState: View {
   public var body: some View {
     Text(self)
   }
 }
 
+@available(iOS 13.0, *)
 extension String {
   public init(state: TextState, locale: Locale? = nil) {
     switch state.storage {
@@ -261,6 +266,7 @@ extension String {
   }
 }
 
+@available(iOS 13.0, *)
 extension LocalizedStringKey: CustomDebugOutputConvertible {
   // NB: `LocalizedStringKey` conforms to `Equatable` but returns false for equivalent format
   //     strings. To account for this we reflect on it to extract and string-format its storage.
@@ -303,6 +309,7 @@ extension LocalizedStringKey: CustomDebugOutputConvertible {
   }
 }
 
+@available(iOS 13.0, *)
 extension TextState: CustomDebugOutputConvertible {
   public var debugOutput: String {
     func debugOutputHelp(_ textState: Self) -> String {

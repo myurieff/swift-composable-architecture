@@ -1,4 +1,5 @@
 /// A linear congruential random number generator.
+@available(iOS 13.0, *)
 public struct LCRNG: RandomNumberGenerator {
   public var seed: UInt64
 

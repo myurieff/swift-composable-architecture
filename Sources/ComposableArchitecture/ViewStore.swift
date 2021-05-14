@@ -232,3 +232,9 @@ extension ViewStore where State: Equatable {
     self.init(store, removeDuplicates: ==)
   }
 }
+@available(iOS 13.0, *)
+extension ViewStore where State == Void {
+  public convenience init(_ store: Store<Void, Action>) {
+    self.init(store, removeDuplicates: ==)
+  }
+}

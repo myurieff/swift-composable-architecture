@@ -6,7 +6,7 @@ import XCTest
 @available(iOS 13.0, *)
 final class EffectThrottleTests: XCTestCase {
   var cancellables: Set<AnyCancellable> = []
-  let scheduler = DispatchQueue.testScheduler
+  let scheduler = DispatchQueue.test
 
   func testThrottleLatest() {
     var values: [Int] = []

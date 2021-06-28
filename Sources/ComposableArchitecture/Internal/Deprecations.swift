@@ -118,6 +118,7 @@ extension AlertState.Button {
 
 @available(iOS 13.0, *)
 extension Store {
+  @_disfavoredOverload
   @available(*, deprecated, renamed: "publisherScope(state:)")
   public func scope<P: Publisher, LocalState>(
     state toLocalState: @escaping (AnyPublisher<State, Never>) -> P
@@ -126,6 +127,7 @@ extension Store {
     self.publisherScope(state: toLocalState)
   }
 
+  @_disfavoredOverload
   @available(*, deprecated, renamed: "publisherScope(state:action:)")
   public func scope<P: Publisher, LocalState, LocalAction>(
     state toLocalState: @escaping (AnyPublisher<State, Never>) -> P,

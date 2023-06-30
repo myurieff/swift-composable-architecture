@@ -426,9 +426,11 @@ public final class ViewStore<ViewState, ViewAction>: ObservableObject {
   @MainActor
   public func yield(while predicate: @escaping (ViewState) -> Bool) async {
     if #available(iOS 15, macOS 12, tvOS 15, watchOS 8, *) {
-      _ = await self.publisher
-        .values
+      for await _ in self.publisher
         .first(where: { !predicate($0) })
+        .values {
+        break
+      }
     } else {
       let cancellable = Box<AnyCancellable?>(wrappedValue: nil)
       try? await withTaskCancellationHandler {
